@@ -6,7 +6,7 @@
 /*   By: grenaud- <grenaud-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 12:54:22 by grenaud-          #+#    #+#             */
-/*   Updated: 2022/10/25 10:02:55 by grenaud-         ###   ########.fr       */
+/*   Updated: 2022/10/25 17:11:50 by grenaud-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	destroy_window(t_game *game)
 {
 	ft_printf(BOLDRED"You ended the game\n"ENDC, game);
 	free_and_exit(game);
-	exit(0);
+	exit (0);
 }
 
 void	free_and_exit(t_game *game)

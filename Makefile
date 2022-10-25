@@ -47,3 +47,13 @@ build:
 	docker run -ti -v /Users/grenaud-/so_long:/files arch
 
 .PHONY: re norm fclean clean all 
+
+#clean:
+#	@rm -f $(OBJECTS)
+#	@echo $(R)Removed [$(OBJECTS)]$(X)
+
+#fclean: clean
+#	@rm -f $(NAME)
+#	@echo $(R)Removed [$(NAME)]$(X)
+
+#re: fclean all

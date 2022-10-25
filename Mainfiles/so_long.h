@@ -147,10 +147,17 @@ int		exit_game_esc(int key, t_game *game);
 void	free_and_exit(t_game *game);
 
 char		**copy_map(char **map, t_game *game);
-void		check_access(t_game *game);
-int			player_access(int x, int y, char **map, t_game *game);
+//void		check_access(t_game *game);
+//int			player_access(int x, int y, char **map, t_game *game);
 int			free_map(char **map);
-t_player	get_cord(char **map, t_player object_cord);
+//t_player	get_cord(char **map, t_player object_cord);
+
+int			pathfinding(t_game *game, int x, int y);
+int			move(t_game *game, char **map, int x, int y);
+int			up(t_game *game, char **map, int x, int y);
+int			down(t_game *game, char **map, int x, int y);
+int			left(t_game *game, char **map, int x, int y);
+int			right(t_game *game, char **map, int x, int y);
 
 char	*ft_strdupcat(char **s1, char *s2);
 void	ft_strdel(char **str);

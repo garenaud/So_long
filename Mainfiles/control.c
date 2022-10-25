@@ -25,10 +25,10 @@ void	wall_control(t_game *game)
 		{
 			if ((y == 0 || x == 0) && game->map[y][x] != '1')
 				message(RED"Error\nWalls missing at the start"ENDC, game);
-			else if ((y == (game->size_y / SIZE)
-					|| x == (game->size_x / SIZE))
+			else if ((y == ((game->size_y / SIZE) - 1)
+					|| x == ((game->size_x / SIZE) - 1))
 					&& game->map[y][x] != '1')
-				message(RED"Walls missing at the end"ENDC, game);
+				message(RED"Error\nWalls missing at the end"ENDC, game);
 			x++;
 		}
 		y++;
@@ -78,7 +78,11 @@ void	game_control(t_game *game)
 				game->playercheck++;
 			}
 			if (game->map[i][j] == 'C')
+			{
+				if (pathfinding(game, j, i) == 0)
+					message(RED"Error\nSolution doesn't exist\n"ENDC, game);
 				game->coincheck++;
+			}
 			j++;
 		}
 		i++;

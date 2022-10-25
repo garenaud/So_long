@@ -97,9 +97,10 @@ int	main(int argc, char **argv)
 	create_map_line(&game, argv);
 	start(&game);
 	game_control(&game);
-	//check_access(&game);
+//	check_access(&game);
 	mlx_key_hook(game.window, deal_key, &game);
+	mlx_hook(game.window, 17, 1L << 0, destroy_window, &game);
+	mlx_hook(game.window, 17, 1L << 17, destroy_window, &game);
 	mlx_loop(game.mlx);
-	mlx_hook(game.window, 17, 1L << 2, destroy_window, &game);
 	exit(0);
 }
