@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "mlx.h": "c",
+        "so_long.h": "c",
+        "limits.h": "c",
+        "__node_handle": "c"
+    }
+}
