@@ -63,6 +63,24 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 	return (NULL);
 }
 
+char	*ft_strrchr(const char *s, int c)
+{
+	int	i;
+
+	i = ft_strlen((char *) s) - 1;
+	if (!s)
+		return (NULL);
+	if (!c || c == '\0')
+		return ((char *)s + (i + 1));
+	while (i >= 0)
+	{
+		if ((char) s[i] == (char)c)
+			return ((char *) &s[i]);
+		i--;
+	}
+	return (NULL);
+}
+
 char	*ft_strjoin(char *s, char c)
 {
 	char	*str;

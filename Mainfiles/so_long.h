@@ -82,9 +82,8 @@ typedef struct s_game
 	t_image		image;
 }				t_game;
 
-size_t		ft_strlen(const char *str);
+size_t	ft_strlen(const char *str);
 
-//int		key_check(int key_code, t_game *game);
 int		destroy_window(t_game *game);
 int		ft_line_length(int fd);
 int		ft_count_lines(int fd);
@@ -93,18 +92,15 @@ void	start(t_game *game);
 void	message(char *msg, t_game *game);
 void	wall_control(t_game *game);
 void	map_control(t_game *game);
-void	game_control(t_game *game);
+void	check_item(t_game *game);
+void	init_item(t_game *game, int i, int j);
 int		move_check(t_game *game, int i, int j);
 void	ft_window_size(t_game *data, char **argv);
 void	create_map(t_game game);
 void	create_floor(t_game *game);
 void	create_map_length(char *area, t_game *game, int i);
 void	create_map_line(t_game *game, char **argv);
-/* void	update(t_game *game, int x, int y);
-void	right(t_game *game);
-void	up(t_game *game);
-void	down(t_game *game);
-void	left(t_game *game); */
+void	check_map_endline(t_game *game, int i, int j);
 void	map_destroy(t_game	*game);
 void	initialisation_image(t_game *game);
 
@@ -113,7 +109,6 @@ char	*ft_strchr(const char *str, int c);
 char	*ft_strnstr(const char *s1, const char *s2, size_t n);
 char	*ft_strjoin(char *s, char c);
 char	*ft_strdup(const char *str);
-//static size_t	ft_strlen_for_strdup(const char *str);
 
 int		ft_printf(const char *str, ...);
 int		ft_dec_to_hexa(unsigned int nb);
@@ -146,18 +141,15 @@ int		destroy_window2(t_game *game);
 int		exit_game_esc(int key, t_game *game);
 void	free_and_exit(t_game *game);
 
-char		**copy_map(char **map, t_game *game);
-//void		check_access(t_game *game);
-//int			player_access(int x, int y, char **map, t_game *game);
-int			free_map(char **map);
-//t_player	get_cord(char **map, t_player object_cord);
-
-int			pathfinding(t_game *game, int x, int y);
-int			move(t_game *game, char **map, int x, int y);
-int			up(t_game *game, char **map, int x, int y);
-int			down(t_game *game, char **map, int x, int y);
-int			left(t_game *game, char **map, int x, int y);
-int			right(t_game *game, char **map, int x, int y);
+char	**copy_map(char **map, t_game *game);
+int		free_map(char **map);
+int		pathfinding(t_game *game, int x, int y);
+int		move(t_game *game, char **map, int x, int y);
+int		move_exit(t_game *game, char **map, int x, int y);
+int		up(t_game *game, char **map, int x, int y);
+int		down(t_game *game, char **map, int x, int y);
+int		left(t_game *game, char **map, int x, int y);
+int		right(t_game *game, char **map, int x, int y);
 
 char	*ft_strdupcat(char **s1, char *s2);
 void	ft_strdel(char **str);

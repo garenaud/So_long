@@ -6,7 +6,7 @@
 /*   By: grenaud- <grenaud-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 18:44:19 by grenaud-          #+#    #+#             */
-/*   Updated: 2022/10/25 19:48:50 by grenaud-         ###   ########.fr       */
+/*   Updated: 2022/10/26 16:18:50 by grenaud-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	move(t_game *game, char **map, int x, int y)
 	if (x < 0 || (game->size_x / 48) < x || y < 0
 		|| (game->size_y / 48) < y || map[y][x] == '1')
 		return (0);
-	if (map[y][x] == 'E')
+	if (map[y][x] == 'P')
 		return (1);
 	map[y][x] = 'X';
 	flag = up(game, map, x, y);

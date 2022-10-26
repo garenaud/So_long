@@ -6,7 +6,7 @@
 /*   By: grenaud- <grenaud-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 12:54:22 by grenaud-          #+#    #+#             */
-/*   Updated: 2022/10/25 17:11:50 by grenaud-         ###   ########.fr       */
+/*   Updated: 2022/10/26 16:38:50 by grenaud-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ void	ft_window_size(t_game *game, char **argv)
 		message(RED"Error\nyou need a .ber extension\n"ENDC, game);
 	game->size_x = (ft_line_length(fd) * 48);
 	game->size_y = (ft_count_lines(fd) * 48);
-/* 	game->map = (char **)malloc(sizeof(char *) * ((game->size_y / 48) + 1));
-	game->map = (char **)malloc(sizeof(char) * (game->size_x / 48) + 1); */
 }
 
 int	destroy_window(t_game *game)
@@ -36,9 +34,9 @@ int	destroy_window(t_game *game)
 
 void	free_and_exit(t_game *game)
 {
-    int i;
-    
-    i = 0;
+	int	i;
+
+	i = 0;
 	mlx_destroy_image(game->mlx, game->image.char_down.mlx_img);
 	mlx_destroy_image(game->mlx, game->image.background.mlx_img);
 	mlx_destroy_image(game->mlx, game->image.char_left.mlx_img);
@@ -47,13 +45,12 @@ void	free_and_exit(t_game *game)
 	mlx_destroy_image(game->mlx, game->image.exit.mlx_img);
 	mlx_destroy_image(game->mlx, game->image.coin.mlx_img);
 	mlx_destroy_image(game->mlx, game->image.wall.mlx_img);
-    mlx_destroy_window(game->mlx, game->window);
-	while (i < (game->size_y / 48))
+	mlx_destroy_window(game->mlx, game->window);
+	while (i < ((game->size_y / 48) + 1))
 	{
 		free(game->map[i]);
 		i++;
 	}
 	free(game->map);
-	//free(game);
-    exit(0);
+	exit(0);
 }

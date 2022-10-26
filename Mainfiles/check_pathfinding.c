@@ -6,7 +6,7 @@
 /*   By: grenaud- <grenaud-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 13:23:05 by grenaud-          #+#    #+#             */
-/*   Updated: 2022/10/25 19:47:11 by grenaud-         ###   ########.fr       */
+/*   Updated: 2022/10/26 16:25:43 by grenaud-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,39 @@ int	pathfinding(t_game *game, int x, int y)
 		free_map(map);
 		return (1);
 	}
+	if (move_exit(game, map, x, y) == 1)
+	{
+		free_map(map);
+		return (1);
+	}
 	else
 	{
 		free_map(map);
 		return (0);
 	}
+}
+
+int	move_exit(t_game *game, char **map, int x, int y)
+{
+	int	flag;
+
+	if (x < 0 || (game->size_x / 48) < x || y < 0
+		|| (game->size_y / 48) < y || map[y][x] == '1')
+		return (0);
+	if (map[y][x] == 'E')
+		return (1);
+	map[y][x] = 'X';
+	flag = up(game, map, x, y);
+	if (flag == 1)
+		return (1);
+	flag = down(game, map, x, y);
+	if (flag == 1)
+		return (1);
+	flag = left(game, map, x, y);
+	if (flag == 1)
+		return (1);
+	flag = right(game, map, x, y);
+	if (flag == 1)
+		return (1);
+	return (0);
 }
