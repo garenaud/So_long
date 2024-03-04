@@ -3,6 +3,7 @@
 ## Overview
 
 "So Long" is a simple, yet engaging 2D puzzle game developed as part of the 42 school curriculum. This project aims to introduce students to graphical programming, focusing on window management, event handling, and basic gameplay elements using the MiniLibX library.
+[read the subject](https://github.com/garenaud/So_long/blob/main/SoLong.subject.pdf "soLong")
 
 ## Project Goals
 
