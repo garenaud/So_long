@@ -1,3 +1,4 @@
+![So Long](https://github.com/garenaud/So_long/blob/main/img/SoLongScreen.png)
 # So Long
 
 ## Overview
